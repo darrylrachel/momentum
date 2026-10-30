@@ -1,6 +1,6 @@
 # Phase 1.5 — UI Foundation & Dashboard Redesign
 
-Date: October 30, 2026. Branch: `codex/phase-1-5-ui-redesign`. Baseline: `3d684158a45b93206ef9c998b7b12db36a21251c`. Initial working tree was clean. Implementation/delivery commit details are recorded below after committing.
+Date: October 30, 2026. Branch: `codex/phase-1-5-ui-redesign`. Baseline: `3d684158a45b93206ef9c998b7b12db36a21251c`. Initial working tree was clean. Implementation commit: `34001f62f5d546fa718536499f66271b165bc287`. Delivery details are below.
 
 ## Result and scope
 
@@ -72,4 +72,4 @@ First finish iPhone visual/accessibility review and address any resulting UI cor
 
 ## Delivery
 
-Implementation commit: recorded in the final delivery update. Report commit is discoverable through this file's Git history. Remote verification and working-tree status are checked after pushing. PR remains unmerged for review.
+Implementation commit: `34001f62f5d546fa718536499f66271b165bc287`, pushed to `origin/codex/phase-1-5-ui-redesign`. Working tree was verified clean after that push. Draft [PR #1](https://github.com/darrylrachel/momentum/pull/1) is open and unmerged. This documentation-only delivery update follows the implementation commit; its final commit is discoverable through this file's Git history. The chat handoff records final remote/working-tree verification.
