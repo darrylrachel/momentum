@@ -39,3 +39,12 @@ Docs: https://docs.expo.dev/eas/index.md
 - If `ios/` and `android/` directories do not exist, they are generated (Continuous Native Generation). Never create or edit them by hand — configure native behavior in `app.json` and config plugins.
 - Expo Go only includes its bundled native modules. After adding a library with native code, the app needs a development build: `npx expo run:ios|android` locally, or `eas build --profile development`.
 - Prefer recommended Expo modules over third-party libraries, and check your available skills before adding dependencies. Docs: https://docs.expo.dev/versions/latest/index.md
+
+# Momentum project workflow
+
+- Implement only the currently approved phase. Stop for review before beginning the next phase.
+- After completing each phase, create `docs/reports/phase-NN-name.md` with implementation summary, architecture decisions, important files, actual validation results, manual acceptance steps, limitations, next-phase recommendation, and Git delivery details.
+- Report failed or unexecuted checks accurately. Never include secrets or private user data.
+- Commit the completed phase and report, then push to `https://github.com/darrylrachel/momentum`. Preserve remote history; never force-push. Use a phase branch and reviewable pull request once a default branch exists.
+- Verify the remote commit after pushing and give the user links to the report and delivery.
+- The application currently lives in `C:/Users/rache/Documents/ChatGPT/Momentum`; the similarly named Code folder is not the application checkout.
