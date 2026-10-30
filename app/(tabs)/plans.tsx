@@ -1,2 +1,9 @@
-import { Badge, Card, Copy, Screen, Section } from '../../src/components/ui';
-export default function Plans() { return <Screen eyebrow="Make room for good food" title="Your plans" subtitle="Less deciding. More enjoying."><Card><Badge>PLANNING · COMING LATER</Badge><Section>A plan that fits your life</Section><Copy muted>No meal plans yet. The guided builder will help you choose who is eating, your goals, dates, schedule, ingredients, and food preferences.</Copy></Card><Section>Thoughtful from the start</Section><Card><Section>New plan? A little guidance.</Section><Copy muted>Every new plan will start with a seven-step reviewable workflow, with saved drafts.</Copy><Section>Small change? Keep it simple.</Section><Copy muted>Existing meals will be directly editable without repeating the builder.</Copy></Card></Screen>; }
+import { View } from 'react-native';
+import { Card, CategoryChip, Copy, Divider, EmptyState, Screen, SectionHeader, SettingsRow } from '../../src/components/ui';
+export default function Plans() {
+  return <Screen title="Your plans" subtitle="A little structure. A lot less deciding.">
+    <Card><EmptyState icon="calendar-outline" title="A plan that fits your life" description="Your active plans and saved drafts will live here." /><CategoryChip label="Plan creation · Coming soon" icon="sparkles-outline" /></Card>
+    <View style={{ gap: 12 }}><SectionHeader title="A thoughtful starting point" /><Card><SettingsRow icon="compass-outline" title="Guided from the start" detail="Goals, schedule, and food preferences — one step at a time." /><Divider /><SettingsRow icon="options-outline" title="Easy to adjust" detail="Edit an existing meal without repeating setup." /></Card></View>
+    <Copy muted style={{ fontSize: 13 }}>Daily and weekly planning will share the same nutrition foundation.</Copy>
+  </Screen>;
+}

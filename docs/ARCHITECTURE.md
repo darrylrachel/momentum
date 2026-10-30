@@ -1,5 +1,7 @@
 # Fresh Fuel foundation
 
+Phase 1.5 UI decisions are recorded in [UI-DESIGN-SYSTEM.md](UI-DESIGN-SYSTEM.md). The current token palette, 16–20 point screen padding, 16 point card padding, 720 point content cap and scale-aware tab/nutrition layouts supersede the initial sizing below. Routes stay in `app/` and domains/persistence stay unchanged.
+
 ## Decisions
 
 - Expo SDK 58 stable, React Native 0.88.1, React 19.3.0 from the official blank TypeScript template. Native packages are selected from Expo's bundled compatibility map; lockfile is authoritative. Node 22.14.0 was available on the implementation machine.

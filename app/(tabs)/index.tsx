@@ -1,9 +1,15 @@
 import { router } from 'expo-router';
-import { Action, Badge, Card, Copy, Screen, Section } from '../../src/components/ui';
+import { View } from 'react-native';
+import { Card, CategoryChip, Copy, EmptyState, PrimaryButton, Screen, SectionHeader, SettingsRow } from '../../src/components/ui';
+import { NutritionSummary } from '../../src/components/nutrition';
 export default function Today() {
-  return <Screen eyebrow="Fresh Fuel / Today" title={'A little planning.\nA better day.'} subtitle="Tell us your goals and what food you have. We'll help you figure out what to eat.">
-    <Card><Badge>YOUR NEXT CHAPTER</Badge><Section>Good food starts here</Section><Copy muted>Your meals, pantry, and shopping will come together in one place.</Copy><Action label="Explore your plans" onPress={() => router.navigate('/plans')} /></Card>
-    <Section>Your daily picture</Section><Card><Badge>NO ACTIVE PLAN</Badge><Section>Room for a fresh start</Section><Copy muted>Nutrition progress and upcoming meals will appear here once planning is available. No targets or food intake have been recorded.</Copy></Card>
-    <Card><Section>Built around you</Section><Copy muted>Everyday keeps things simple. Performance brings precise targets and portions. Both will share the same trusted planning engine.</Copy><Badge>FOUNDATION PREVIEW · PLANNING COMING LATER</Badge></Card>
+  const date = new Intl.DateTimeFormat(undefined, { weekday: 'long', month: 'long', day: 'numeric' }).format(new Date());
+  return <Screen title="Today" subtitle={date}>
+    <View style={{ gap: 12 }}><SectionHeader title="Daily nutrition" meta="No active plan" /><NutritionSummary /></View>
+    <Card><EmptyState compact icon="sparkles-outline" title="Good food starts here" description="Make room for meals that fit your goals and your day." /><PrimaryButton label="Explore your plans" icon="arrow-forward" onPress={() => router.navigate('/plans')} /></Card>
+    <View style={{ gap: 12 }}><SectionHeader title="Today's meals" /><Card><EmptyState compact icon="restaurant-outline" title="Nothing on the menu yet" description="Your scheduled meals will appear here when planning is available." /></Card></View>
+    <View style={{ gap: 12 }}><SectionHeader title="Your kitchen, connected" /><Card><SettingsRow icon="leaf-outline" title="See your pantry" detail="A home for the food you have" onPress={() => router.navigate('/pantry')} /><SettingsRow icon="basket-outline" title="Open groceries" detail="Your future shopping companion" onPress={() => router.navigate('/grocery')} /></Card></View>
+    <CategoryChip label="Meal planning is coming soon" />
+    <Copy muted style={{ fontSize: 12 }}>No meal, intake, or target data has been created.</Copy>
   </Screen>;
 }

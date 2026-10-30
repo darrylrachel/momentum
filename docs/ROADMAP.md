@@ -1,5 +1,7 @@
 # Independently reviewable follow-up PRs
 
+Phase 1.5 delivers the UI design system and dashboard redesign before the feature sequence below. Physical iPhone visual/accessibility review remains a review gate; it does not authorize backend work.
+
 Each PR adds its own relevant tests. Approval of Phase 1 does not authorize implementing these phases.
 
 1. Authentication + account onboarding: Supabase sessions, runtime validation, separate welcome flow, minimal profile and single-member household creation, RLS isolation tests, sign-out and deletion/export design. No required body metrics in Everyday mode.

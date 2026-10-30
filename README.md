@@ -1,6 +1,6 @@
 # Fresh Fuel
 
-Mobile-first meal-planning foundation. Phase 1 only: five tabs, reusable UI, typed domain contracts, and persistent dark/light/system appearance. No nutrition values or account data are fabricated.
+Mobile-first meal-planning foundation with the Phase 1.5 Fresh Fuel UI redesign: five tabs, a compact empty-state nutrition dashboard, reusable visual primitives, typed domain contracts, and persistent dark/light/system appearance. No nutrition values or account data are fabricated.
 
 ## Develop
 
@@ -31,5 +31,7 @@ Each completed phase includes a versioned report in `docs/reports/`, followed by
 - `__tests__/`: appearance and router integration tests.
 - [Architecture](docs/ARCHITECTURE.md): decisions, boundaries and security design.
 - [Roadmap](docs/ROADMAP.md): future PR sequence and acceptance gates.
+- [UI design system](docs/UI-DESIGN-SYSTEM.md): component contracts, accessibility decisions, and asset policy.
+- [Phase 1.5 review checklist](docs/QA-PHASE-1-5.md): iPhone and visual acceptance steps.
 
 Profile editing, authentication, forms, nutrition engines, pantry operations, Plan Builder, grocery operations, progress, reminders, and households are not implemented. No remote Supabase schema or RLS policies exist yet; they are required before backend data is exposed. App-store icon artwork and physical-device layout review are still needed before distribution.

@@ -1,2 +1,9 @@
-import { Badge, Card, Copy, Screen, Section } from '../../src/components/ui';
-export default function Grocery() { return <Screen eyebrow="Shop with a purpose" title="Your groceries" subtitle="Everything you need. Less of what you don't."><Card><Badge>SHOPPING · COMING LATER</Badge><Section>A lighter shopping list</Section><Copy muted>No grocery lists yet. Future lists will account for ingredients already in your pantry.</Copy></Card><Card><Section>From basket to pantry</Section><Copy muted>Checking off a purchase and adding its confirmed quantity to your inventory will be separate actions, so stock stays accurate.</Copy></Card></Screen>; }
+import { View } from 'react-native';
+import { Card, CategoryChip, Copy, Divider, EmptyState, Screen, SectionHeader, SettingsRow } from '../../src/components/ui';
+export default function Grocery() {
+  return <Screen title="Your groceries" subtitle="A focused list. A simpler shop.">
+    <Card><EmptyState icon="basket-outline" title="A lighter shopping list" description="Future lists will bring together what your meals need, minus what's in your pantry." /><CategoryChip label="Shopping lists · Coming soon" icon="list-outline" /></Card>
+    <View style={{ gap: 12 }}><SectionHeader title="From list to kitchen" /><Card><SettingsRow icon="bag-check-outline" title="Shop with confidence" detail="Review and confirm what you purchased." /><Divider /><SettingsRow icon="cube-outline" title="Keep stock accurate" detail="Add the confirmed quantity to your pantry separately." /></Card></View>
+    <Copy muted style={{ fontSize: 13 }}>No lists or purchases recorded.</Copy>
+  </Screen>;
+}

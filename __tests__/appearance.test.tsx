@@ -4,6 +4,8 @@ import { ThemeProvider } from '../src/theme/ThemeProvider';
 import Settings from '../app/settings';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { parseTheme, resolveTheme, THEME_KEY } from '../src/theme/preferences';
+import * as Native from 'react-native';
+import { palettes } from '../src/theme/tokens';
 
 function App() { return <SafeAreaProvider initialMetrics={{ frame: { x: 0, y: 0, width: 390, height: 844 }, insets: { top: 0, left: 0, right: 0, bottom: 0 } }}><ThemeProvider><Settings /></ThemeProvider></SafeAreaProvider>; }
 beforeEach(async () => { jest.clearAllMocks(); await AsyncStorage.clear(); });
@@ -31,4 +33,12 @@ test('reports persistence failure without discarding selection', async () => {
   jest.mocked(AsyncStorage.setItem).mockRejectedValueOnce(new Error('storage unavailable'));
   await fireEvent.press(screen.getByRole('radio', { name: /Light theme/ }));
   await waitFor(() => expect(screen.getByRole('alert')).toBeTruthy());
+});
+test('restored system preference renders the device light palette', async () => {
+  const device = jest.spyOn(Native, 'useColorScheme').mockReturnValue('light');
+  await AsyncStorage.setItem(THEME_KEY, 'system');
+  await render(<App />);
+  await waitFor(() => expect(screen.getByRole('radio', { name: 'Match device settings' }).props.accessibilityState.checked).toBe(true));
+  expect(Native.StyleSheet.flatten(screen.getByText('Your theme').props.style).color).toBe(palettes.light.text);
+  device.mockRestore();
 });
