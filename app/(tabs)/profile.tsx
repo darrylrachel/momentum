@@ -1,3 +1,14 @@
 import { router } from 'expo-router';
-import { Action, Badge, Card, Copy, Screen, Section } from '../../src/components/ui';
-export default function Profile() { return <Screen eyebrow="Your own kind of healthy" title="Your profile" subtitle="Preferences that make planning feel personal."><Card><Badge>LOCAL FOUNDATION · NO ACCOUNT CONNECTED</Badge><Section>Welcome to Fresh Fuel</Section><Copy muted>Profile setup will arrive with account onboarding. No personal nutrition information has been collected.</Copy></Card><Card><Section>Made for your routine</Section><Copy muted>Planning mode, goals, dietary preferences, allergies, meals per day, and measurement units will be editable here.</Copy><Copy muted>Profile defaults will stay separate from individual plan choices.</Copy></Card><Action label="Appearance settings" onPress={() => router.push('/settings')} /></Screen>; }
+import { View } from 'react-native';
+import { Card, CategoryChip, Copy, Divider, EmptyState, Screen, SectionHeader, SettingsRow } from '../../src/components/ui';
+import { useTheme } from '../../src/theme/ThemeProvider';
+export default function Profile() {
+  const { preference } = useTheme();
+  const theme = preference === 'system' ? 'Match device settings' : `${preference === 'dark' ? 'Dark' : 'Light'} theme`;
+  return <Screen title="Your space" subtitle="Make Fresh Fuel feel like you.">
+    <Card><EmptyState compact icon="person-outline" title="Welcome to Fresh Fuel" description="No account connected. Your appearance choice stays on this device." /></Card>
+    <View style={{ gap: 12 }}><SectionHeader title="App preferences" /><Card><SettingsRow icon="color-palette-outline" title="Appearance settings" detail={theme} onPress={() => router.push('/settings')} /></Card></View>
+    <View style={{ gap: 12 }}><SectionHeader title="Built around you" meta="Coming soon" /><Card><SettingsRow icon="nutrition-outline" title="Nutrition preferences" detail="Everyday or Performance, goals, and dietary needs" /><Divider /><SettingsRow icon="people-outline" title="Your household" detail="Named members and individual preferences" /></Card></View>
+    <CategoryChip label="Profile setup · Coming soon" /><Copy muted style={{ fontSize: 12 }}>No personal nutrition information collected.</Copy>
+  </Screen>;
+}
